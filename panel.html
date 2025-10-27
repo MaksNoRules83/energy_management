@@ -12,9 +12,9 @@
         <!-- <h2>Мониторинг энергопотребления</h2> -->
         <h3>Меню</h3>
         <ul>
-            <li><a href="/">Главная</a></li>
-            <li><a href="/add-device">Добавить прибор</a></li>
-            <li><a href="/profile">Личный кабинет</a></li>
+            <li><a href="panel.html">Главная</a></li>
+            <li><a href="profile.html">Личный кабинет</a></li>
+            <li><a href="settings.html">Настройки</a></li>
         </ul>
     </div>
 
@@ -31,7 +31,10 @@
 
         <!-- Таблица приборов -->
         <div class="table-container">
-            <h2>Список электроприборов</h2>
+            <div class="title-energy-table">
+                <h2>Список электроприборов</h2>
+                <button class="add-button">Добавить</button>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -40,6 +43,7 @@
                         <th>Мощность (Вт)</th>
                         <th>Время работы (ч)</th>
                         <th>Потребление (кВт·ч)</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,6 +53,7 @@
                         <td>200</td>
                         <td>24</td>
                         <td>4.8</td>
+                        <td><button class="delete-button">X</button></td>
                     </tr>
                     <tr>
                         <td>2</td>
@@ -56,6 +61,7 @@
                         <td>150</td>
                         <td>4</td>
                         <td>0.6</td>
+                        <td><button class="delete-button">X</button></td>
                     </tr>
                     <tr>
                         <td>3</td>
@@ -63,6 +69,7 @@
                         <td>400</td>
                         <td>8</td>
                         <td>3.2</td>
+                        <td><button class="delete-button">X</button></td>
                     </tr>
                     <tr>
                         <td>4</td>
@@ -70,6 +77,23 @@
                         <td>2000</td>
                         <td>2</td>
                         <td>4.0</td>
+                        <td><button class="delete-button">X</button></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Стиральная машина</td>
+                        <td>2000</td>
+                        <td>2</td>
+                        <td>4.0</td>
+                        <td><button class="delete-button">X</button></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Электрочайник</td>
+                        <td>1800</td>
+                        <td>0.5</td>
+                        <td>0.9</td>
+                        <td><button class="delete-button">X</button></td>
                     </tr>
                 </tbody>
             </table>

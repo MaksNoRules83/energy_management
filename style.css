@@ -1,175 +1,37 @@
+
+/* Общие стили */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #e8f5e9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: 'Arial', sans-serif;
     margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #afd5bf;
+    color: #343a40;
 }
 
-.login-container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
-}
-
-.login-header {
-    margin-bottom: 25px;
-    text-align: center;
-    color: #2e8b57;
-    font-size: 24px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-input[type="submit"] {
-    width: 100%;
-    padding: 10px;
+/* Стили кнопки Добавить */
+.add-button {
     background-color: #2e8b57;
-    border: none;
+    width: 10vh;
+    height: 5vh;
     border-radius: 4px;
     color: white;
     font-size: 16px;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-input[type="submit"]:hover {
+.add-button:hover {
     background-color: #206a43;
 }
 
-.forgot-password {
-    text-align: right;
-
-    margin-top: 10px;
-    color: #2e8b57;
-    font-size: 14px;
-}
-
-.forgot-password a {
-    text-decoration: none;
-    color: #2e8b57;
-}
-
-.forgot-password a:hover {
-    text-decoration: underline;
-}
-
-.register-button {
-    text-align: right;
-    margin-top: 10px;
-    color: #2e8b57;
-    font-size: 14px;
-}
-
-.register-button a {
-    text-decoration: none;
-    color: #2e8b57;
-}
-
-.forgot-password a:hover {
-    text-decoration: underline;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #e8f5e9;
+.title-energy-table {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.register-container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
-}
-
-.register-header {
-    margin-bottom: 25px;
-    text-align: center;
-    color: #2e8b57;
-    font-size: 24px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #2e8b57;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-input[type="submit"]:hover {
-    background-color: #206a43;
-}
-
-.form-group input:focus {
-    border-color: #2e8b57;
-    box-shadow: 0 0 5px rgba(46, 139, 87, 0.5);
-}
-
-.already-have-account {
-    margin-top: 15px;
-    text-align: center;
-    color: #333;
-}
-
-.already-have-account a {
-    color: #2e8b57;
-    text-decoration: none;
-}
-
-.already-have-account a:hover {
-    text-decoration: underline;
 }
 
 /* Стили сайдбара */
@@ -178,7 +40,7 @@ input[type="submit"]:hover {
     background-color: #2e8b57;
     color: white;
     padding: 20px;
-    height: 100vh;
+    height: 97vh;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -224,11 +86,21 @@ input[type="submit"]:hover {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-height: 320px;
+    overflow-y: auto;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #c3e6cb;
 }
 
 th,
@@ -236,6 +108,9 @@ td {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 th {
@@ -247,19 +122,41 @@ tr:hover {
     background-color: #f1f1f1;
 }
 
-/* Кнопки */
-.btn {
-    display: inline-block;
-    padding: 10px 15px;
-    margin-top: 20px;
-    background-color: #2e8b57;
+/* Стилизация полосы прокрутки (WebKit) */
+.table-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #e9ecef;
+    border-radius: 6px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #86b77d;
+    border-radius: 6px;
+}
+
+.delete-button {
+    background-color: red;
+    width: 3vh;
+    height: 3vh;
+    border-radius: 4px;
     color: white;
+    font-size: 16px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.btn:hover {
-    background-color: #206a43;
+.delete-button:hover {
+    background-color: darkred;
+}
+
+.settings-section{
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
