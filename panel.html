@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мониторинг энергопотребления</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Боковая панель -->
+    <div class="sidebar">
+        <!-- <h2>Мониторинг энергопотребления</h2> -->
+        <h3>Меню</h3>
+        <ul>
+            <li><a href="/">Главная</a></li>
+            <li><a href="/add-device">Добавить прибор</a></li>
+            <li><a href="/profile">Личный кабинет</a></li>
+        </ul>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="content">
+        <!-- Блок с графиком -->
+        <div class="chart-container">
+            <h2>Динамика энергопотребления</h2>
+            <div class="chart">
+                <!-- Здесь будет отображаться график -->
+                <canvas id="energyChart" width="600" height="400"></canvas>
+            </div>
+        </div>
+
+        <!-- Таблица приборов -->
+        <div class="table-container">
+            <h2>Список электроприборов</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Название прибора</th>
+                        <th>Мощность (Вт)</th>
+                        <th>Время работы (ч)</th>
+                        <th>Потребление (кВт·ч)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Холодильник</td>
+                        <td>200</td>
+                        <td>24</td>
+                        <td>4.8</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Телевизор</td>
+                        <td>150</td>
+                        <td>4</td>
+                        <td>0.6</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Компьютер</td>
+                        <td>400</td>
+                        <td>8</td>
+                        <td>3.2</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Стиральная машина</td>
+                        <td>2000</td>
+                        <td>2</td>
+                        <td>4.0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
