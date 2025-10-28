@@ -9,19 +9,41 @@
 <body>
     <!-- Боковая панель -->
     <div class="sidebar">
-        <!-- <h2>Мониторинг энергопотребления</h2> -->
+        <h2>Мониторинг энергопотребления</h2>
         <h3>Меню</h3>
         <ul>
             <li><a href="panel.html">Главная</a></li>
             <li><a href="profile.html">Личный кабинет</a></li>
             <li><a href="settings.html">Настройки</a></li>
         </ul>
+
+        <!-- Блок с предупреждением -->
+        <div class="alert-box">
+            <p><strong>Внимание!</strong> Обнаружено превышение допустимой мощности в сети. Проверьте подключённые приборы.</p>
+        </div>
     </div>
 
     <!-- Основной контент -->
     <div class="content">
         <div class="settings-section">
+            <h1>Настройки</h1>
+        
+            <form class="settings-form">
+                <div class="form-group">
+                    <label for="maxPower">Максимальная мощность (Вт) в сутки</label>
+                    <input 
+                    class="input-power" 
+                    type="number" 
+                    id="maxPower" 
+                    name="maxPower" 
+                    placeholder="Введите значение"
+                    value="15000"
+                    required
+                    >
+                </div>
 
+                <button type="submit" class="save-btn">Сохранить настройки</button>
+            </form>
         </div>
     </div>
 </body>

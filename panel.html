@@ -5,17 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мониторинг энергопотребления</title>
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.anychart.com/releases/8.13.0/js/anychart-base.min.js" type="text/javascript"></script>
 </head>
 <body>
     <!-- Боковая панель -->
     <div class="sidebar">
-        <!-- <h2>Мониторинг энергопотребления</h2> -->
+        <h2>Мониторинг энергопотребления</h2>
         <h3>Меню</h3>
         <ul>
             <li><a href="panel.html">Главная</a></li>
             <li><a href="profile.html">Личный кабинет</a></li>
             <li><a href="settings.html">Настройки</a></li>
         </ul>
+        
+        <!-- Блок с предупреждением -->
+        <div class="alert-box">
+            <p><strong>Внимание!</strong> Обнаружено превышение допустимой мощности в сети. Проверьте подключённые приборы.</p>
+        </div>
     </div>
 
     <!-- Основной контент -->
@@ -23,17 +30,22 @@
         <!-- Блок с графиком -->
         <div class="chart-container">
             <h2>Динамика энергопотребления</h2>
-            <div class="chart">
-                <!-- Здесь будет отображаться график -->
-                <canvas id="energyChart" width="600" height="400"></canvas>
+            <div class="charts">
+                <div id="allEnergyChart" style="width:33%; height: 400px"></div>
+                <div id="energyChartVt" style="width:34%; height: 400px"></div>
+                <div id="energyChartVtH" style="width:33%; height: 400px"></div>
             </div>
+            <!-- <div class="chart"> -->
+                <!-- Здесь будет отображаться график -->
+                <!-- <canvas id="energyChart" width="600" height="400"></canvas> -->
+            <!-- </div> -->
         </div>
 
         <!-- Таблица приборов -->
         <div class="table-container">
             <div class="title-energy-table">
                 <h2>Список электроприборов</h2>
-                <button class="add-button">Добавить</button>
+                <button class="add-button" onclick="document.querySelector('.modal-overlay').style.display = 'flex'">Добавить</button>
             </div>
             <table>
                 <thead>
@@ -80,14 +92,6 @@
                         <td><button class="delete-button">X</button></td>
                     </tr>
                     <tr>
-                        <td>4</td>
-                        <td>Стиральная машина</td>
-                        <td>2000</td>
-                        <td>2</td>
-                        <td>4.0</td>
-                        <td><button class="delete-button">X</button></td>
-                    </tr>
-                    <tr>
                         <td>5</td>
                         <td>Электрочайник</td>
                         <td>1800</td>
@@ -99,5 +103,85 @@
             </table>
         </div>
     </div>
+
+    <!-- Модальное окно -->
+    <div class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Добавление электроприбора</h3>
+                <button class="close-btn" onclick="document.querySelector('.modal-overlay').style.display = 'none'">×</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="deviceName">Название прибора</label>
+                        <input class="input-modal" type="text" id="deviceName" name="deviceName" placeholder="Введите название" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="power">Мощность (Вт)</label>
+                        <input class="input-modal" type="number" id="power" name="power" placeholder="Введите мощность" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="workTime">Время работы (ч)</label>
+                        <input class="input-modal" type="number" id="workTime" name="workTime" placeholder="Введите время работы" required>
+                    </div>
+
+                    <button type="submit" class="add-btn">Добавить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        anychart.onDocumentLoad(function () {
+        // create an instance of a pie chart
+        var chart1 = anychart.pie();
+        var chart2 = anychart.column();
+        var chart3 = anychart.pie();
+
+        // set the data
+        chart1.data([
+        ["Холодильник", 200],
+        ["Телевизор", 150],
+        ["Компьютер", 400],
+        ["Стиральная машина", 2000],
+        ["Электрочайник", 1800]
+        ]);
+
+        var data2 = [
+        ["Вся энергия (Вт)", 15000],
+        ["Электроприборы (Вт)", 4550],
+        ["Вся энергия (кВт·ч)", 3600],
+        ["Электроприборы (кВт·ч)", 109.2],
+        ];
+
+        var serie = chart2.column(data2);
+
+        serie.normal().fill("#00cc99", 0.3);
+        serie.normal().stroke("#00cc99", 1);
+
+        chart3.data([
+        ["Холодильник", 4.8],
+        ["Телевизор", 0.6],
+        ["Компьютер", 3.2],
+        ["Стиральная машина", 4.0],
+        ["Электрочайник", 0.9]
+        ]);
+        // set chart title
+        chart1.title("Мощность электроприборов (Вт)");
+        chart2.title("Мощность и потребление всей энергии");
+        chart3.title("Потребление электроприборов (кВт·ч)");
+        // set the container element 
+        chart1.container("energyChartVt");
+        chart2.container("allEnergyChart");
+        chart3.container("energyChartVtH");
+        // initiate chart display
+        chart1.draw();
+        chart2.draw();
+        chart3.draw();
+    });
+    </script>
 </body>
 </html>

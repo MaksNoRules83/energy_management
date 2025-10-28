@@ -1,4 +1,3 @@
-
 /* Общие стили */
 body {
     font-family: 'Arial', sans-serif;
@@ -154,9 +153,181 @@ tr:hover {
     background-color: darkred;
 }
 
-.settings-section{
+.settings-section {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #2e8b57;
+    margin-bottom: 30px;
+}
+
+/* Стили формы настроек */
+.settings-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+}
+
+.input-power {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input-power:focus {
+    border-color: #2e8b57;
+    outline: none;
+}
+
+.save-btn {
+    background-color: #2e8b57;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.save-btn:hover {
+    background-color: #206a43;
+}
+
+/* Базовый стиль для затемнения фона */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Стили модального окна */
+.modal {
+    background-color: white;
+    border-radius: 12px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Шапка модального окна */
+.modal-header {
+    background-color: #2e8b57;
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 18px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Тело модального окна */
+.modal-body {
+    padding: 24px 20px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+    font-weight: 500;
+}
+
+.input-modal {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.input-modal:focus {
+    border-color: #2e8b57;
+    outline: none;
+}
+
+/* Кнопка добавления */
+.add-btn {
+    background-color: #2e8b57;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 8px;
+    transition: background-color 0.3s;
+}
+
+.add-btn:hover {
+    background-color: #206a43;
+}
+
+/* Блок с предупреждением */
+.alert-box {
+    background-color: #d4edda;
+    padding: 15px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    color: #155724;
+}
+
+.alert-box strong {
+    color: #134c21;
+}
+
+.charts{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
